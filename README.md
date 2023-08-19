@@ -27,10 +27,10 @@ You can update Model User in config\auth.php with:
 ```
 You can update App\Providers\Filament\AdminPanelProvider with:
 ```php
-            ->login(Kgalanos\FilamentUser\Filament\Pages\Auth\Login::class)
-            ->registration(Kgalanos\FilamentUser\Filament\Pages\Auth\Register::class)
+            ->login(\Kgalanos\FilamentUser\Filament\Pages\Auth\Login::class)
+            ->registration(\Kgalanos\FilamentUser\Filament\Pages\Auth\Register::class)
             ->passwordReset()
-            ->profile(Kgalanos\FilamentUser\Filament\Pages\Auth\EditProfile::class)
+            ->profile(\Kgalanos\FilamentUser\Filament\Pages\Auth\EditProfile::class)
 
             ->discoverPages(base_path('vendor/kgalanos/filament-user/src/Filament/Pages'),'Kgalanos\\FilamentUser\\Filament\\Pages')
 ```
