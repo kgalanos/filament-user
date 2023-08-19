@@ -5,7 +5,6 @@ namespace Kgalanos\FilamentUser\Filament\Pages\Auth;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use function Filament\Support\is_slot_empty;
 
 class EditProfile extends \Filament\Pages\Auth\EditProfile
 {
@@ -37,8 +36,7 @@ class EditProfile extends \Filament\Pages\Auth\EditProfile
     {
         return TextInput::make('username')
             ->label(__('Username'))
-            ->readOnly(fn(TextInput $component):bool =>
-                config('filament-user.IsUsernameEditable') ? false : ! is_null($component->getRecord()['username'])
+            ->readOnly(fn (TextInput $component): bool => config('filament-user.IsUsernameEditable') ? false : ! is_null($component->getRecord()['username'])
             )
             ->alphaNum()
             ->required()

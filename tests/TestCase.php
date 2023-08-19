@@ -3,8 +3,8 @@
 namespace Kgalanos\FilamentUser\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Kgalanos\FilamentUser\FilamentUserServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
