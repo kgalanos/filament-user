@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->ulid()->nullable()->unique()->after('id');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->nullable()->default(null)->unique('username')->after('ulid');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar_url')->nullable()->default(null)->after('username');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('phone')->nullable()->default(null)->unique('phone')->after('email_verified_at');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('phone_verified_at')->nullable()->default(null)->after('phone');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('ulid');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('username');
+        });
+        Schema::table('users', function (Blueprint $table) {
+             $table->dropColumn('avatar_url');
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('phone');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('phone_verified_at');
+        });
+    }
+};
