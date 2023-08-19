@@ -13,3 +13,5 @@ last commit in 2023-08-19
 ## 1.0.0 - 2023-08-19
 
 Initial Release
+## 1.0.1 - 2023-08-19
+fix some typo in README.md
