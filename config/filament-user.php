@@ -1,6 +1,6 @@
 <?php
 
 // config for Kgalanos/FilamentUser
-return[
+return [
     'IsUsernameEditable' => true,
 ];

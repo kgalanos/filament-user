@@ -4,7 +4,6 @@ namespace Kgalanos\FilamentUser;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Kgalanos\FilamentUser\Commands\FilamentUserCommand;
 
 class FilamentUserServiceProvider extends PackageServiceProvider
 {
