@@ -8,3 +8,4 @@ last commit in 2023-08-19
 
 * Add fields ulid, username, avatar_url, phone, phone_verified_at
 * You can login with username or email
+* fit some github run-tests
