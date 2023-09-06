@@ -19,7 +19,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
-    use HasApiTokens, HasFactory, Notifiable, HasUlids, HasRoles;
+    use HasApiTokens, HasFactory, HasRoles, HasUlids, Notifiable;
 
     /**
      * The attributes that are mass assignable.

@@ -4,7 +4,6 @@ namespace Kgalanos\FilamentUser\Filament\Resources;
 
 use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
@@ -15,9 +14,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
@@ -41,6 +38,7 @@ class UserResource extends Resource
                         if (is_null($component->getRecord())) {
                             return false;
                         }
+
                         // if is existing record and username is empty
                         return config('filament-user.IsUsernameEditable') ? false : ! is_null($component->getRecord()['username']);
                     })
@@ -120,7 +118,7 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->searchable(),
-                TextColumn::make('roles.name')
+                TextColumn::make('roles.name'),
             ])
             ->filters([
                 //
@@ -132,7 +130,7 @@ class UserResource extends Resource
             ], position: ActionsPosition::BeforeColumns)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make(),
+                    //                    Tables\Actions\DeleteBulkAction::make(),
                     FilamentExportBulkAction::make('export'),
                 ]),
             ])
@@ -157,10 +155,12 @@ class UserResource extends Resource
             'view' => Pages\ViewUser::route('/{record}/view'),
         ];
     }
+
     public static function getGlobalSearchResultUrl(Model $record): string
     {
         return self::getUrl('view', ['record' => $record]);
     }
+
     public static function getGloballySearchableAttributes(): array
     {
         return ['username', 'phone', 'email', 'name'];
