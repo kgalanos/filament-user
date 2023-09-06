@@ -18,6 +18,6 @@ class FilamentUserServiceProvider extends PackageServiceProvider
             ->name('filament-user')
             ->hasConfigFile('filament-user')
             ->hasViews('kgalanos\\filament-user')
-            ->hasMigration('migrate_users_table');
+            ->hasMigration('add_username_ulid_phone_to_users_table');
     }
 }

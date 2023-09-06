@@ -6,6 +6,12 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/kgalanos/filament-user.svg?style=flat-square)](https://packagist.org/packages/kgalanos/filament-user)
 
 Add fields ulid(do not remove id),username,phone and phone_verified_at to User Model and you may login with username/email in filamentphp panel.
+Also installs and configure 
+````bash
+        "alperenersoy/filament-export": "*",
+        "stechstudio/filament-impersonate": "^3.0",
+        "bezhansalleh/filament-shield": "*"
+````
 
 ## Installation
 
@@ -19,11 +25,41 @@ You can publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --tag="filament-user-migrations"
+```
+```bash
 php artisan migrate
 ```
 You can update Model User in config\auth.php with:
 ```php
 'model' => \Kgalanos\FilamentUser\Models\User::class,
+```
+or
+you can update 
+```php
+App\Models\User
+with
+class User extends \Kgalanos\FilamentUser\Models\User implements FilamentUser
+{
+    use HasFilamentShield, HasRoles;
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'username',
+        'avatar_url',
+        'phone',
+    ];
+.....
+}
+```
+Install the Filament Panel Builder by running
+```bash
+php artisan filament:install --panels
 ```
 You can update App\Providers\Filament\AdminPanelProvider with:
 ```php
@@ -37,6 +73,9 @@ You can update App\Providers\Filament\AdminPanelProvider with:
 You can publish the config file with:
 
 ```bash
+php artisan vendor:publish --tag=filament-shield-config
+```
+```bash
 php artisan vendor:publish --tag="filament-user-config"
 ```
 
@@ -46,6 +85,42 @@ This is the contents of the published config file:
 return [
 ];
 ```
+For the Shield
+```php
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
+        ]);
+}
+```
+```bash
+php artisan shield:install
+```
+If there is no user id DB it ask you to create an admin.
+
+```bash
+php artisan make:filament-resource User 
+```
+change the App\Filament\Resources
+```php
+class UserResource extends \Kgalanos\FilamentUser\Filament\Resources\UserResource
+{
+
+    public static function form(Form $form): Form
+    {
+        $form= parent::form($form);
+        return $form;
+    }
+
+    public static function table(Table $table): Table
+    {
+        $table=parent::table($table);
+        return $table;
+    }
+}
+````
 Optionally you can use Kgalanos\FilamentUser\Filament\Widgets\ApplicationInfoWidget
 update App\Providers\Filament\AdminPanelProvider with:
 ```php
