@@ -10,8 +10,18 @@ last commit in 2023-08-19
 - You can login with username or email
 - fit some github run-tests
 
+## 2.0.0 - 2023-09-07
+
+add
+"alperenersoy/filament-export": "*",
+"stechstudio/filament-impersonate": "^3.0",
+"spatie/laravel-permission": "^5.8",
+"bezhansalleh/filament-shield": "*"
+
 ## 1.0.0 - 2023-08-19
 
 Initial Release
+
 ## 1.0.1 - 2023-08-19
+
 fix some typo in README.md
