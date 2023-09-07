@@ -2,7 +2,7 @@
 
 namespace Kgalanos\FilamentUser\Filament\Resources\UserResource\Pages;
 
-use App\Filament\Resources\UserResource;
+use Kgalanos\FilamentUser\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 

@@ -4,7 +4,7 @@ namespace Kgalanos\FilamentUser\Filament\Resources\UserResource\Pages;
 
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ViewRecord;
-use App\Filament\Resources\UserResource;
+use Kgalanos\FilamentUser\Filament\Resources\UserResource;
 
 class ViewUser extends ViewRecord
 {

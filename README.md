@@ -108,6 +108,8 @@ change the App\Filament\Resources
 class UserResource extends \Kgalanos\FilamentUser\Filament\Resources\UserResource
 {
 
+    protected static ?string $model = App\Models\User::class;
+    
     public static function form(Form $form): Form
     {
         $form= parent::form($form);

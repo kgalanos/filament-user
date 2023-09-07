@@ -23,6 +23,7 @@
         "illuminate/contracts": "^10.0",
         "alperenersoy/filament-export": "*",
         "stechstudio/filament-impersonate": "^3.0",
+        "spatie/laravel-permission": "^5.8",
         "bezhansalleh/filament-shield": "*"
     },
     "require-dev": {
