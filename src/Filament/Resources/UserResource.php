@@ -3,12 +3,9 @@
 namespace Kgalanos\FilamentUser\Filament\Resources;
 
 use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
-
-use Kgalanos\FilamentUser\Filament\Resources\UserResource\Pages;
-use Kgalanos\FilamentUser\Filament\Resources\UserResource\RelationManagers;
-use Kgalanos\FilamentUser\Models\User;
-use Filament\Forms\Components\{ Select, TextInput};
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -18,7 +15,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
-use Livewire\Component;
+use Kgalanos\FilamentUser\Filament\Resources\UserResource\Pages;
+use Kgalanos\FilamentUser\Models\User;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource

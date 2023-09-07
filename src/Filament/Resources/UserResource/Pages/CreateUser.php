@@ -2,11 +2,8 @@
 
 namespace Kgalanos\FilamentUser\Filament\Resources\UserResource\Pages;
 
-
-use Kgalanos\FilamentUser\Filament\Resources\UserResource;
-use Filament\Actions;
-
 use Filament\Resources\Pages\CreateRecord;
+use Kgalanos\FilamentUser\Filament\Resources\UserResource;
 
 class CreateUser extends CreateRecord
 {

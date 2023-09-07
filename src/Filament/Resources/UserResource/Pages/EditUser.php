@@ -2,9 +2,9 @@
 
 namespace Kgalanos\FilamentUser\Filament\Resources\UserResource\Pages;
 
-use Kgalanos\FilamentUser\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Kgalanos\FilamentUser\Filament\Resources\UserResource;
 
 class EditUser extends EditRecord
 {
