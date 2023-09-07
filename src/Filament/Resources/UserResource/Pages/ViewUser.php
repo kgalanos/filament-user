@@ -6,6 +6,7 @@ use Filament\Pages\Actions;
 use Filament\Resources\Pages\ViewRecord;
 use Kgalanos\FilamentUser\Filament\Resources\UserResource;
 
+
 class ViewUser extends ViewRecord
 {
     protected static string $resource = UserResource::class;
